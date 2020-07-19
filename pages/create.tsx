@@ -4,6 +4,7 @@ import { Container } from '../styles/createStyles';
 import axios from 'axios';
 import { useState } from 'react';
 import Router from 'next/router';
+import { API_URL } from '../variables/variables';
 
 export default function CreatePost() {
     const initialState = {
@@ -25,7 +26,7 @@ export default function CreatePost() {
     const SendData = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         axios
-            .post(`${process.env.API_URL}/posts`, {
+            .post(`${API_URL}/posts`, {
                 title: createState.title,
                 body: createState.body,
             })

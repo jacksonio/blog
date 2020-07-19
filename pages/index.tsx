@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Title } from '../styles/mainPageStyles';
 import { SinglePost } from '../interfaces/page';
 import { NextPageContext } from 'next';
+import { API_URL } from '../variables/variables';
 
 interface PostsPageProps {
     posts: SinglePost[];
@@ -15,7 +16,7 @@ export default function Posts({ posts: serverPosts }: PostsPageProps) {
 
     useEffect(() => {
         async function load() {
-            const posts = await axios.get(`${process.env.API_URL}/posts`).then((response) => response.data);
+            const posts = await axios.get(`${API_URL}/posts`).then((response) => response.data);
 
             setPosts(posts);
         }
@@ -56,7 +57,7 @@ Posts.getInitialProps = async ({ req }: NextPageContext) => {
         return { posts: null };
     }
 
-    const posts = await axios(`${process.env.API_URL}/posts`).then((res) => res.data);
+    const posts = await axios(`${API_URL}/posts`).then((res) => res.data);
 
     return {
         posts,

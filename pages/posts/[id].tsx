@@ -4,6 +4,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import { SinglePost } from '../../interfaces/page';
 import { NextPageContext } from 'next';
+import { API_URL } from '../../variables/variables';
 
 interface PostMyPageProps {
     post: SinglePost;
@@ -27,7 +28,7 @@ interface PostNextPageContext extends NextPageContext {
 }
 
 PostPage.getInitialProps = async ({ query }: PostNextPageContext) => {
-    const { data: post } = await axios(`${process.env.API_URL}/posts/${query.id}`);
+    const { data: post } = await axios(`${API_URL}/posts/${query.id}`);
 
     return { post };
 };
