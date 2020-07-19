@@ -5,5 +5,7 @@
 
 import { PropsWithChildren } from 'react';
 
-export interface MainLayoutOwnProps {title?: string}
-export type MainLayoutComp = PropsWithChildren<MainLayoutOwnProps>
+export interface MainLayoutOwnProps {
+    title?: string;
+}
+export type MainLayoutComp = PropsWithChildren<MainLayoutOwnProps>;

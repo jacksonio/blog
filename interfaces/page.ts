@@ -1,5 +1,5 @@
-export interface MyPost {
-    id: string|number,
-    title: string,
-    body: string
+export interface SinglePost {
+    id: string | number;
+    title: string;
+    body: string;
 }
